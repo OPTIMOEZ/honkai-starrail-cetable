@@ -10,6 +10,8 @@ Inside table:
 - Unlock FPS
 - Camera Mode
 - Unlimited Zoom Out
+- Player Coordinate XYZ
+- Player Data Info
 
 More information:
 - https://www.unknowncheats.me/forum/other-mmorpg-and-strategy/582519-honkai-star-rail-cheat-table.html
