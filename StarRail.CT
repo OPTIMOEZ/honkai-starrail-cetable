@@ -357,6 +357,197 @@ dealloc(nzoomdist)
 </AssemblerScript>
     </CheatEntry>
     <CheatEntry>
+      <ID>9293</ID>
+      <Description>"Player Coordinate"</Description>
+      <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{  Game Executable   : StarRail.exe
+   Script Date       : 2023-05-08
+   Author            : Sianz
+}
+
+[ENABLE]
+aobscanmodule(aoplayerxyz,unityplayer.dll,8B 42 18 89 41 18 8B 47)
+alloc(nplayerxyz,$1000,aoplayerxyz)
+label(rplayerxyz)
+label(resplayerxyz)
+label(lplayerxyz)
+nplayerxyz:
+mov [lplayerxyz],rdx
+resplayerxyz:
+readmem(aoplayerxyz,6)
+jmp rplayerxyz
+lplayerxyz:
+dq 0
+aoplayerxyz:
+jmp nplayerxyz
+nop
+rplayerxyz:
+registersymbol(aoplayerxyz)
+registersymbol(resplayerxyz)
+registersymbol(lplayerxyz)
+[DISABLE]
+aoplayerxyz:
+readmem(resplayerxyz,6)
+unregistersymbol(aoplayerxyz)
+unregistersymbol(resplayerxyz)
+unregistersymbol(lplayerxyz)
+dealloc(nplayerxyz)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>9295</ID>
+          <Description>"Pos X"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>lplayerxyz</Address>
+          <Offsets>
+            <Offset>10</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9294</ID>
+          <Description>"Pos Z"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>lplayerxyz</Address>
+          <Offsets>
+            <Offset>18</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9296</ID>
+          <Description>"Pos Y"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>lplayerxyz</Address>
+          <Offsets>
+            <Offset>14</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>9284</ID>
+      <Description>"Player Data"</Description>
+      <Options moHideChildren="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{  Game Executable   : StarRail.exe
+   Script Date       : 2023-05-08
+   Author            : Sianz
+}
+
+define(address,"GameAssembly.dll"+58F82CF)
+define(bytes,3B 58 20 0F 84 F8 00 00 00)
+[ENABLE]
+assert(address,bytes)
+alloc(newmem,$1000,"GameAssembly.dll"+58F82CF)
+label(code)
+label(return)
+label(pdata)
+registersymbol(pdata)
+newmem:
+code:
+mov [pdata],rax
+cmp ebx,[rax+20]
+je GameAssembly.dll+58F83D0
+jmp return
+pdata:
+dd 0
+address:
+jmp newmem
+nop 4
+return:
+[DISABLE]
+address:
+db bytes
+dealloc(newmem)
+unregistersymbol(pdata)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>9267</ID>
+          <Description>"UID"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>pdata</Address>
+          <Offsets>
+            <Offset>20</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9269</ID>
+          <Description>"Level"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>pdata</Address>
+          <Offsets>
+            <Offset>24</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9271</ID>
+          <Description>"Exp"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>pdata</Address>
+          <Offsets>
+            <Offset>4C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9285</ID>
+          <Description>"Exp"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>pdata</Address>
+          <Offsets>
+            <Offset>4C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9272</ID>
+          <Description>"Stamina"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>pdata</Address>
+          <Offsets>
+            <Offset>50</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9273</ID>
+          <Description>"MCoin"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>pdata</Address>
+          <Offsets>
+            <Offset>54</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9274</ID>
+          <Description>"HCoin"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>pdata</Address>
+          <Offsets>
+            <Offset>58</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9275</ID>
+          <Description>"SCoin"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>pdata</Address>
+          <Offsets>
+            <Offset>5C</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
       <ID>9201</ID>
       <Description>"Unlock FPS"</Description>
       <ShowAsSigned>0</ShowAsSigned>
