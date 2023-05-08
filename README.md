@@ -12,5 +12,5 @@ Inside table:
 - Unlimited Zoom Out
 
 More information:
-https://www.unknowncheats.me/forum/other-mmorpg-and-strategy/582519-honkai-star-rail-cheat-table.html
-https://fearlessrevolution.com/viewtopic.php?f=4&t=24557
+- https://www.unknowncheats.me/forum/other-mmorpg-and-strategy/582519-honkai-star-rail-cheat-table.html
+- https://fearlessrevolution.com/viewtopic.php?f=4&t=24557
